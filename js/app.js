@@ -49,7 +49,8 @@ var calculateTime = function(element, date) {
 
 	element.innerHTML = sanitize(years," year") + sanitize(months," month") + 
 						sanitize(weeks," week") + sanitize(days," day")	  + 
-						sanitize(minutes, " minute") + seconds + " seconds"; 
+						sanitize(hours," hour") + sanitize(minutes, " minute") + 
+						seconds + " seconds"; 
 };
 
 window.setInterval(function() {
