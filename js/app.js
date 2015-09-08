@@ -12,31 +12,25 @@ var calculateTime = function(element, date) {
 	var diffEpoch = currentDateEpoch - deathDateEpoch;
 	var years, months, weeks, days, hours, seconds; 
 	
-	if ( diffEpoch / 31556926 > 0 ) {
-		years = Math.round(diffEpoch / 31556926);
-		diffEpoch %= 31556926;
-		if (diffEpoch / 2629743 > 0 ) {
-			months = Math.round(diffEpoch / 2629743); 
-			diffEpoch %= 2629743;
-			if ( diffEpoch / 604800 > 0 ) {
-				weeks = Math.round(diffEpoch / 604800);
-				diffEpoch %= 604800;
-				if ( diffEpoch / 86400 > 0 ) {
-					days = Math.round(diffEpoch / 86400);
-					diffEpoch %= 86400;
-					if ( diffEpoch / 3600 > 0 ) {
-						hours = Math.round(diffEpoch / 3600);
-						diffEpoch %= 3600;
-					}
-					if ( diffEpoch / 60){
-						minutes = Math.round(diffEpoch / 60);
-						diffEpoch %= 60;
-					}
-						seconds = Math.round(diffEpoch);
-				}
-			}
-		}
-	}
+	years = Math.floor(diffEpoch / 31556926);
+	diffEpoch %= 31556926;
+
+	months = Math.floor(diffEpoch / 2629743); 
+	diffEpoch %= 2629743;
+
+	weeks = Math.floor(diffEpoch / 604800);
+	diffEpoch %= 604800;
+
+	days = Math.floor(diffEpoch / 86400);
+	diffEpoch %= 86400;
+
+	hours = Math.floor(diffEpoch / 3600);
+	diffEpoch %= 3600;
+
+	minutes = Math.floor(diffEpoch / 60);
+	diffEpoch %= 60;
+
+	seconds = Math.round(diffEpoch);
 
 	var sanitize = function(val , key) {
 		if ( val == 0 )
